@@ -1,48 +1,27 @@
 
 # securesphere_agent
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
+This module can be used to install, register and start the Imperva SecureSphere Agent on Linux and Windows Servers.
 
 #### Table of Contents
 
 1. [Description](#description)
 2. [Setup - The basics of getting started with securesphere_agent](#setup)
-    * [What securesphere_agent affects](#what-securesphere_agent-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with securesphere_agent](#beginning-with-securesphere_agent)
 3. [Usage - Configuration options and additional functionality](#usage)
 4. [Limitations - OS compatibility, etc.](#limitations)
 5. [Development - Guide for contributing to the module](#development)
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your module does and what kind of problems users can solve with it.
+This module automates the installation, registration and running of the Imperva SecureSphere Agent.
 
-This should be a fairly short description helps the user decide if your module is what they want.
+This agent is used on Database nodes to secure and audit access, as well as auditing file access on SharePoint servers.
 
 ## Setup
 
-### What securesphere_agent affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
-
-### Beginning with securesphere_agent
-
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+In order to use the module, simply install it either using your Puppetfile or using the "puppet module install" command.
+This will allow you to simply classify all your nodes which need the agent installed with the xxx class.
+Any customisation of the install can be achieved by setting parameters, either in the Console or through Hiera. 
 
 ## Usage
 
