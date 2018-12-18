@@ -6,10 +6,16 @@ class aioinstall {
   }
 
   exec { 'register-ragent':
-    #path => 'C:/Program Files (x86)/Imperva/RemoteAgent',
-    #command => "RemoteAgentCli.exe\ is-db-agent=true\ registration\ advanced-register\ ragent-name=pupp-ragent\ gw-ip=10.4.253.103",
-	  command => 'C:\Windows\System32\cmd.exe /c "C:\Program Files (x86)\Imperva\RemoteAgent\RemoteAgentCli.exe"\ is-db-agent=true\ registration\ advanced-register\ ragent-name=pupp-ragent\ gw-ip=10.4.253.103',
+    path => 'C:/Program Files (x86)/Imperva/RemoteAgent',
+    command => 'RemoteAgentCli.exe registration advanced-register is-db-agent=true ragent-name=pupp-ragent gateway=10.4.253.103 password=secure'
     subscribe => Package['Imperva SecureSphere Remote Agent'],
     refreshonly => true,
+	  before => Service['SecureSphereRemoteAgent'],
+  }
+
+  service { 'SecureSphereRemoteAgent':
+    ensure => 'running',
+	  enable => 'true',
+	  require => Package['Imperva SecureSphere Remote Agent'],
   }
 }
